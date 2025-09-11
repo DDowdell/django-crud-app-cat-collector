@@ -2,7 +2,7 @@
 {% load static %}
 {% block head %}
 <link rel="stylesheet" href="{% static "css/cats/cat-detail.css" %}" />
-{% endblock %}
+{% endblock %} 
 {% block content %}
   <section class="cat-container">
     <div class="cat-img">
@@ -39,7 +39,7 @@
       </form>
 
       <h3>Past Feedings</h3>
-        {% if cat.feeding_set.all.count %}
+      {% if cat.feeding_set.all.count %}
         <table>
           <thead>
             <tr>
@@ -48,18 +48,18 @@
             </tr>
           </thead>
         <tbody>
-        {% for feeding in cat.feeding_set.all %}
+      {% for feeding in cat.feeding_set.all %}
         <tr>
           <td>{{feeding.date}}</td>
           <td>{{feeding.get_meal_display}}</td>
         </tr>
-        {% endfor %}
+      {% endfor %}
         </tbody>
         </table>
-        {% else %}
+      {% else %}
         <div class="subsection-content">
           <p>⚠️ {{cat.name}} has not been fed!</p>
         </div>
-        {% endif %}
+      {% endif %}
 
 {% endblock %}
